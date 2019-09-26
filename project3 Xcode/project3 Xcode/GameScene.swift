@@ -50,7 +50,11 @@ class GameScene: SKScene {
             n.position = pos
             n.strokeColor = SKColor.green
             self.addChild(n)
-            player?.position = CGPoint(x:200.6,y:310.4)
+            //class var mouseLocation : NSPoint {get}
+            
+            player?.position = pos // since pos is the pair of coordinates, it can be used to set coordinates of the SKNode 'player' in this instance
+            //player?.position = CGPoint(x:200.6,y:310.4)
+            //print(player?.anchorPoint)
         }
     }
     
@@ -67,7 +71,12 @@ class GameScene: SKScene {
             n.position = pos
             n.strokeColor = SKColor.red
             self.addChild(n)
-            player?.position = CGPoint(x:0,y:0)
+            //The next 3 lines will move the 'player' to a random location when trackpad click is RELEASED
+            let rand_x = Double.random(in: -350..<350)
+            let rand_y = Double.random(in:-750..<750)
+            player?.position = CGPoint(x:rand_x,y:rand_y)
+            
+            //player?.position = CGPoint(x:0,y:0) //resets player position to 0,0
         }
     }
     

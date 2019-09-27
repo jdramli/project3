@@ -46,9 +46,9 @@ class GameScene: SKScene {
     //let creates immutable variables -- var creates mutable variables.
     
     func touchDown(atPoint pos : CGPoint) {
-        if let n = self.spinnyNode?.copy() as! SKShapeNode? {
+        if let n = self.player?.copy() as! SKSpriteNode? {
             n.position = pos
-            n.strokeColor = SKColor.green
+            //n.strokeColor = SKColor.green
             self.addChild(n)
             //class var mouseLocation : NSPoint {get}
             
@@ -63,29 +63,31 @@ class GameScene: SKScene {
             n.position = pos
             n.strokeColor = SKColor.blue
             self.addChild(n)
+            player?.position = pos
         }
     }
     
     func touchUp(atPoint pos : CGPoint) {
-        if let n = self.spinnyNode?.copy() as! SKShapeNode? {
+        if let n = self.player?.copy() as! SKSpriteNode? {
             n.position = pos
-            n.strokeColor = SKColor.red
-            self.addChild(n)
+            //n.strokeColor = SKColor.red
+            //self.addChild(n)
             //The next 3 lines will move the 'player' to a random location when trackpad click is RELEASED
-            let rand_x = Double.random(in: -350..<350)
-            let rand_y = Double.random(in:-750..<750)
-            player?.position = CGPoint(x:rand_x,y:rand_y)
+            //let rand_x = Double.random(in: -350..<350)
+            //let rand_y = Double.random(in:-750..<750)
+            //player?.position = CGPoint(x:rand_x,y:rand_y)
+            //player?.position = pos
             
             //player?.position = CGPoint(x:0,y:0) //resets player position to 0,0
         }
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-        if let player = self.player {
-            player.run(SKAction.init(named: "Pulse")!, withKey: "fadeInOut")
-        }
+//        if let player = self.player {
+//            player.run(SKAction.init(named: "Pulse")!, withKey: "fadeInOut")
+//        }
         
-        for t in touches { self.touchDown(atPoint: t.location(in: self)) }
+//        for t in touches { self.touchDown(atPoint: t.location(in: self)) }
     }
     
     override func touchesMoved(_ touches: Set<UITouch>, with event: UIEvent?) {

@@ -16,6 +16,7 @@ class GameScene: SKScene {
     
     private var lastUpdateTime : TimeInterval = 0
     private var player : SKSpriteNode?
+    private var square : SKSpriteNode?
     private var spinnyNode : SKShapeNode?
     
     override func sceneDidLoad() {
@@ -30,22 +31,16 @@ class GameScene: SKScene {
                 //player.zRotation(32.4)
         }
         
-        // Create shape node to use during mouse interaction
-        let w = (self.size.width + self.size.height) * 0.05
-        self.spinnyNode = SKShapeNode.init(rectOf: CGSize.init(width: w, height: w), cornerRadius: w * 0.3)
         
-        if let spinnyNode = self.spinnyNode {
-            spinnyNode.lineWidth = 2.5
-            
-            spinnyNode.run(SKAction.repeatForever(SKAction.rotate(byAngle: CGFloat(Double.pi), duration: 1)))
-            spinnyNode.run(SKAction.sequence([SKAction.wait(forDuration: 0.5),
-                                              SKAction.fadeOut(withDuration: 0.5),
-                                              SKAction.removeFromParent()]))
-        }
     }
     //let creates immutable variables -- var creates mutable variables.
     
     func touchDown(atPoint pos : CGPoint) {
+        if let y = self.square?.copy() as! SKSpriteNode?{
+            y.position = pos
+            self.addChild(y)
+            square?.position = pos
+        }
         if let n = self.player?.copy() as! SKSpriteNode? {
             n.position = pos
             //n.strokeColor = SKColor.green
@@ -76,7 +71,7 @@ class GameScene: SKScene {
             //let rand_x = Double.random(in: -350..<350)
             //let rand_y = Double.random(in:-750..<750)
             //player?.position = CGPoint(x:rand_x,y:rand_y)
-            //player?.position = pos
+            player?.position = pos
             
             //player?.position = CGPoint(x:0,y:0) //resets player position to 0,0
         }

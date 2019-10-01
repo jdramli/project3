@@ -30,21 +30,31 @@ class GameScene: SKScene {
             player.run(SKAction.fadeIn(withDuration: 2.0))
                 //player.zRotation(32.4)
         }
+        self.square = self.childNode(withName: "//square") as? SKSpriteNode
+        if let square = self.square {
+            square.alpha = 0.0
+            square.run(SKAction.fadeIn(withDuration: 2.0))
+                //player.zRotation(32.4)
+        }
         
         
+    }
+    func didMove(to view: GameScene){
+        let apple = SKSpriteNode(imageNamed: "Apple.png")
+        apple.position = CGPoint(x: size.width/2, y: size.height/2)
+            
+        addChild(apple)
+        let moveBottomLeft = SKAction.move(to: CGPoint(x: 100,y: 100), duration:2.0)
+        apple.run(moveBottomLeft)
     }
     //let creates immutable variables -- var creates mutable variables.
     
     func touchDown(atPoint pos : CGPoint) {
-        if let y = self.square?.copy() as! SKSpriteNode?{
-            y.position = pos
-            self.addChild(y)
-            square?.position = pos
-        }
+        
         if let n = self.player?.copy() as! SKSpriteNode? {
             n.position = pos
             //n.strokeColor = SKColor.green
-            self.addChild(n)
+           // self.addChild(n)
             //class var mouseLocation : NSPoint {get}
             
             player?.position = pos // since pos is the pair of coordinates, it can be used to set coordinates of the SKNode 'player' in this instance
@@ -54,11 +64,14 @@ class GameScene: SKScene {
     }
     
     func touchMoved(toPoint pos : CGPoint) {
+        
         if let n = self.player?.copy() as! SKSpriteNode? {
             n.position = pos
             //n.strokeColor = SKColor.blue
             //self.addChild(n)
             player?.position = pos
+            //player?.position = CGPoint(x:pos.x+100,y:pos.y+50)
+            square?.position = CGPoint(x:Double.random(in: -350..<350),y: Double.random(in: -350..<350))
         }
     }
     

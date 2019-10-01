@@ -17,6 +17,7 @@ class GameScene: SKScene {
     private var lastUpdateTime : TimeInterval = 0
     private var player : SKSpriteNode?
     private var square : SKSpriteNode?
+    private var greensquare: SKSpriteNode?
     private var spinnyNode : SKShapeNode?
     
     override func sceneDidLoad() {
@@ -30,12 +31,13 @@ class GameScene: SKScene {
             player.run(SKAction.fadeIn(withDuration: 2.0))
                 //player.zRotation(32.4)
         }
-        self.square = self.childNode(withName: "//square") as? SKSpriteNode
+        self.square = self.childNode(withName: "//redsquare") as? SKSpriteNode
         if let square = self.square {
             square.alpha = 0.0
             square.run(SKAction.fadeIn(withDuration: 2.0))
                 //player.zRotation(32.4)
         }
+        self.greensquare = self.childNode(withName: "//greensquare") as? SKSpriteNode
         
         
     }

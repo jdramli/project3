@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		754636E1233C565B00BC5773 /* shooter.png in Resources */ = {isa = PBXBuildFile; fileRef = 754636E0233C565B00BC5773 /* shooter.png */; };
+		75787D5A2344E7A50073669E /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 75787D592344E7A40073669E /* README.md */; };
 		75BECBD32339B9980092DE05 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75BECBD22339B9980092DE05 /* AppDelegate.swift */; };
 		75BECBD52339B9980092DE05 /* GameScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = 75BECBD42339B9980092DE05 /* GameScene.sks */; };
 		75BECBD72339B9980092DE05 /* Actions.sks in Resources */ = {isa = PBXBuildFile; fileRef = 75BECBD62339B9980092DE05 /* Actions.sks */; };
@@ -39,6 +40,7 @@
 
 /* Begin PBXFileReference section */
 		754636E0233C565B00BC5773 /* shooter.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = shooter.png; sourceTree = "<group>"; };
+		75787D592344E7A40073669E /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		75BECBCF2339B9980092DE05 /* project3 Xcode.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "project3 Xcode.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		75BECBD22339B9980092DE05 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		75BECBD42339B9980092DE05 /* GameScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = GameScene.sks; sourceTree = "<group>"; };
@@ -85,6 +87,7 @@
 		75BECBC62339B9980092DE05 = {
 			isa = PBXGroup;
 			children = (
+				75787D592344E7A40073669E /* README.md */,
 				75BECBD12339B9980092DE05 /* project3 Xcode */,
 				75BECBEC2339B99A0092DE05 /* project3 XcodeTests */,
 				75BECBF72339B99A0092DE05 /* project3 XcodeUITests */,
@@ -247,6 +250,7 @@
 				75BECBE02339B99A0092DE05 /* Assets.xcassets in Resources */,
 				75BECBE32339B99A0092DE05 /* LaunchScreen.storyboard in Resources */,
 				75BECBD72339B9980092DE05 /* Actions.sks in Resources */,
+				75787D5A2344E7A50073669E /* README.md in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

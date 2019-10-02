@@ -91,7 +91,10 @@ class GameScene: SKScene {
             //player?.position = CGPoint(x:0,y:0) //resets player position to 0,0
         }
         //if let g = self.greensquare?.copy() as! SKSpriteNode?{
-        greensquare?.position = CGPoint(x:(greensquare?.position.x)!+10,y:(greensquare?.position.y)!)
+        greensquare?.position = CGPoint(x:(greensquare?.position.x)!+50,y:(greensquare?.position.y)!)
+        if((greensquare?.position.x)! > 350.0){
+            greensquare?.position = CGPoint(x: -177.2, y:260.784)
+        }
         //}
     }
     

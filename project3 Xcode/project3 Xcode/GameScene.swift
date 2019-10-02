@@ -18,6 +18,12 @@ class GameScene: SKScene {
     private var player : SKSpriteNode?
     private var square : SKSpriteNode?
     private var greensquare: SKSpriteNode?
+    
+    private var yellowsquare: SKSpriteNode?
+    
+    private var up: SKSpriteNode?
+    
+    
     private var spinnyNode : SKShapeNode?
     
     override func sceneDidLoad() {

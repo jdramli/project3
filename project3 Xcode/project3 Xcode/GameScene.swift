@@ -90,6 +90,9 @@ class GameScene: SKScene {
             
             //player?.position = CGPoint(x:0,y:0) //resets player position to 0,0
         }
+        //if let g = self.greensquare?.copy() as! SKSpriteNode?{
+        greensquare?.position = CGPoint(x:(greensquare?.position.x)!+10,y:(greensquare?.position.y)!)
+        //}
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {

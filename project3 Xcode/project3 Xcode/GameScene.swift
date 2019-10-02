@@ -16,7 +16,8 @@ class GameScene: SKScene {
     
     private var lastUpdateTime : TimeInterval = 0
     private var player : SKSpriteNode?
-    private var square : SKSpriteNode?
+    private var redsquare : SKSpriteNode?
+    private var redsquare2 : SKSpriteNode?
     private var greensquare: SKSpriteNode?
     
     private var yellowsquare: SKSpriteNode?
@@ -37,12 +38,9 @@ class GameScene: SKScene {
             player.run(SKAction.fadeIn(withDuration: 2.0))
                 //player.zRotation(32.4)
         }
-        self.square = self.childNode(withName: "//redsquare") as? SKSpriteNode
-        if let square = self.square {
-            square.alpha = 0.0
-            square.run(SKAction.fadeIn(withDuration: 2.0))
-                //player.zRotation(32.4)
-        }
+        self.redsquare = self.childNode(withName: "//redsquare") as? SKSpriteNode
+        self.redsquare2 = self.childNode(withName: "//redsquare2") as? SKSpriteNode
+       
         self.greensquare = self.childNode(withName: "//greensquare") as? SKSpriteNode
         
         
@@ -79,7 +77,7 @@ class GameScene: SKScene {
             //self.addChild(n)
             player?.position = pos
             //player?.position = CGPoint(x:pos.x+100,y:pos.y+50)
-            square?.position = CGPoint(x:Double.random(in: -350..<350),y: Double.random(in: -350..<350))
+            //redsquare?.position = CGPoint(x:Double.random(in: -350..<350),y: Double.random(in: -350..<350))
         }
     }
     
@@ -97,10 +95,7 @@ class GameScene: SKScene {
             //player?.position = CGPoint(x:0,y:0) //resets player position to 0,0
         }
         //if let g = self.greensquare?.copy() as! SKSpriteNode?{
-        greensquare?.position = CGPoint(x:(greensquare?.position.x)!+50,y:(greensquare?.position.y)!)
-        if((greensquare?.position.x)! > 350.0){
-            greensquare?.position = CGPoint(x: -177.2, y:260.784)
-        }
+        
         //}
     }
     
@@ -142,5 +137,17 @@ class GameScene: SKScene {
         }
         
         self.lastUpdateTime = currentTime
+        //greensquare?.position = CGPoint(x:(greensquare?.position.x)!+50,y:(greensquare?.position.y)!)
+        //if((greensquare?.position.x)! > 350.0){
+        //    greensquare?.position = CGPoint(x: -177.2, y:260.784)
+        redsquare?.position = CGPoint(x:(redsquare?.position.x)!+10,y:(redsquare?.position.y)!)
+        if((redsquare?.position.x)! > 350.0){
+            redsquare?.position = CGPoint(x: -345, y:131)
+        }
+        redsquare2?.position = CGPoint(x:(redsquare2?.position.x)!+20,y:(redsquare2?.position.y)!)
+        if((redsquare2?.position.x)! > 350.0){
+            redsquare2?.position = CGPoint(x: -345, y:349)
+        }
+        }
     }
-}
+

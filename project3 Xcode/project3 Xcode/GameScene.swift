@@ -19,13 +19,14 @@ class GameScene: SKScene {
     private var redsquare : SKSpriteNode?
     private var redsquare2 : SKSpriteNode?
     private var greensquare: SKSpriteNode?
-    
     private var yellowsquare: SKSpriteNode?
+    
+    
     
     private var up: SKSpriteNode?
     
     
-    private var spinnyNode : SKShapeNode?
+    //private var spinnyNode : SKShapeNode?
     
     override func sceneDidLoad() {
 
@@ -42,6 +43,18 @@ class GameScene: SKScene {
         self.redsquare2 = self.childNode(withName: "//redsquare2") as? SKSpriteNode
        
         self.greensquare = self.childNode(withName: "//greensquare") as? SKSpriteNode
+        self.yellowsquare = self.childNode(withName: "//yellowsquare")as? SKSpriteNode
+        player?.physicsBody = SKPhysicsBody(circleOfRadius: 29)
+        redsquare?.physicsBody = SKPhysicsBody(circleOfRadius: 29)
+        redsquare2?.physicsBody = SKPhysicsBody(circleOfRadius: 29)
+        yellowsquare?.physicsBody = SKPhysicsBody(circleOfRadius: 29)
+        player?.physicsBody?.affectedByGravity = false
+        redsquare?.physicsBody?.affectedByGravity = false
+        redsquare2?.physicsBody?.affectedByGravity = false
+        yellowsquare?.physicsBody?.affectedByGravity = false
+        redsquare?.physicsBody?.collisionBitMask = 0b0001
+        redsquare2?.physicsBody?.collisionBitMask = 0b0001
+        yellowsquare?.physicsBody?.collisionBitMask = 0b0001
         
         
     }

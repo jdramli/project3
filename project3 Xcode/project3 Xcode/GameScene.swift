@@ -23,9 +23,12 @@ class GameScene: SKScene {
     private var winlabel: SKLabelNode?
     
     private var testtimer: SKLabelNode?
-    //private var time : Timer
+    private var time : Timer?
     
     private var up: SKSpriteNode?
+    private var down: SKSpriteNode?
+    private var left: SKSpriteNode?
+    private var right: SKSpriteNode?
     
     
     //private var spinnyNode : SKShapeNode?
@@ -37,16 +40,20 @@ class GameScene: SKScene {
          
         self.testtimer = self.childNode(withName: "//timer") as? SKLabelNode
         testtimer?.position = CGPoint(x:50,y:50)
+        testtimer?.color = .brown
+        time?.fire()
+        print ("statement after call to time.fire()")
+        //testtimer?.text = time?.fireDate.description
         
-        
-        // Get label node from scene and store it for use later
+        // store nodes for winlabel and player
         self.winlabel = self.childNode(withName: "//contactlabel") as? SKLabelNode
         self.player = self.childNode(withName: "//player") as? SKSpriteNode
-       // if let player = self.player {
-       //     player.alpha = 0.0
-       //     player.run(SKAction.fadeIn(withDuration: 2.0))
-                //player.zRotation(32.4)
-       // }
+        //store nodes for directional keys
+        self.up = self.childNode(withName: "//up") as? SKSpriteNode
+        self.down = self.childNode(withName: "//down") as? SKSpriteNode
+        self.left = self.childNode(withName: "//left") as? SKSpriteNode
+        self.right = self.childNode(withName: "//right") as? SKSpriteNode
+        
         self.redsquare = self.childNode(withName: "//redsquare") as? SKSpriteNode
         self.redsquare2 = self.childNode(withName: "//redsquare2") as? SKSpriteNode
        
@@ -95,6 +102,7 @@ class GameScene: SKScene {
     
     func touchDown(atPoint pos : CGPoint) {
         
+        /*
         if let n = self.player?.copy() as! SKSpriteNode? {
             n.position = pos
             //n.strokeColor = SKColor.green
@@ -104,10 +112,13 @@ class GameScene: SKScene {
             player?.position = pos // since pos is the pair of coordinates, it can be used to set coordinates of the SKNode 'player' in this instance
             //player?.position = CGPoint(x:200.6,y:310.4)
             //print(player?.anchorPoint)
-        }
+        }*/
+        
     }
     
     func touchMoved(toPoint pos : CGPoint) {
+        
+        /*
         //winlabel?.text = "Moving"
         //winlabel?.text = timer.get
         if let n = self.player?.copy() as! SKSpriteNode? {
@@ -118,9 +129,25 @@ class GameScene: SKScene {
             //player?.position = CGPoint(x:pos.x+100,y:pos.y+50)
             //redsquare?.position = CGPoint(x:Double.random(in: -350..<350),y: Double.random(in: -350..<350))
         }
+         */
     }
     
     func touchUp(atPoint pos : CGPoint) {
+        print("The current click position for x is:",pos.x)
+        print("The current click position for y is:",pos.y)
+        if(pos.x < -215 && pos.x > -265 && pos.y < -480 && pos.y > -530){
+            player?.position = CGPoint(x:(player?.position.x)!, y:(player?.position.y)!+20)
+        }
+        else if(pos.x < -215 && pos.x > -265 && pos.y < -575 && pos.y > -625){
+            player?.position = CGPoint(x:(player?.position.x)!, y:(player?.position.y)!-20)
+        }
+        else if(pos.x < -160 && pos.x > -210 && pos.y < -525 && pos.y > -575){
+            player?.position = CGPoint(x:(player?.position.x)!+20, y:(player?.position.y)!)
+        }
+        else if(pos.x < -265 && pos.x > -310 && pos.y < -525 && pos.y > -575){
+            player?.position = CGPoint(x:(player?.position.x)!-20, y:(player?.position.y)!)
+        }
+        /*
         //winlabel?.text = "Stopped"
         if let n = self.player?.copy() as! SKSpriteNode? {
             n.position = pos
@@ -137,6 +164,7 @@ class GameScene: SKScene {
         //if let g = self.greensquare?.copy() as! SKSpriteNode?{
         
         //}
+        */
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {

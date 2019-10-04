@@ -22,6 +22,8 @@ class GameScene: SKScene {
     private var yellowsquare: SKSpriteNode?
     private var winlabel: SKLabelNode?
     
+    private var testtimer: SKLabelNode?
+    //private var time : Timer
     
     private var up: SKSpriteNode?
     
@@ -32,14 +34,19 @@ class GameScene: SKScene {
 
         self.lastUpdateTime = 0
         
+         
+        self.testtimer = self.childNode(withName: "//timer") as? SKLabelNode
+        testtimer?.position = CGPoint(x:50,y:50)
+        
+        
         // Get label node from scene and store it for use later
         self.winlabel = self.childNode(withName: "//contactlabel") as? SKLabelNode
         self.player = self.childNode(withName: "//player") as? SKSpriteNode
-        if let player = self.player {
-            player.alpha = 0.0
-            player.run(SKAction.fadeIn(withDuration: 2.0))
+       // if let player = self.player {
+       //     player.alpha = 0.0
+       //     player.run(SKAction.fadeIn(withDuration: 2.0))
                 //player.zRotation(32.4)
-        }
+       // }
         self.redsquare = self.childNode(withName: "//redsquare") as? SKSpriteNode
         self.redsquare2 = self.childNode(withName: "//redsquare2") as? SKSpriteNode
        
@@ -49,6 +56,8 @@ class GameScene: SKScene {
         redsquare?.physicsBody = SKPhysicsBody(circleOfRadius: 29)
         redsquare2?.physicsBody = SKPhysicsBody(circleOfRadius: 29)
         yellowsquare?.physicsBody = SKPhysicsBody(circleOfRadius: 29)
+        greensquare?.physicsBody? = SKPhysicsBody(circleOfRadius: 29)
+        
         player?.physicsBody?.affectedByGravity = false
         redsquare?.physicsBody?.affectedByGravity = false
         redsquare2?.physicsBody?.affectedByGravity = false
@@ -56,27 +65,32 @@ class GameScene: SKScene {
         redsquare?.physicsBody?.collisionBitMask = 0b0001
         redsquare2?.physicsBody?.collisionBitMask = 0b0001
         yellowsquare?.physicsBody?.collisionBitMask = 0b0001
+        greensquare?.physicsBody?.collisionBitMask = 0b0001
+        player?.physicsBody?.collisionBitMask = 0b0001
         
-        greensquare?.physicsBody? = SKPhysicsBody(circleOfRadius: 29)
+        
         greensquare?.physicsBody?.affectedByGravity = false
-        greensquare?.physicsBody?.contactTestBitMask = 0b0010
-        player?.physicsBody?.contactTestBitMask = 0b0010
+        
+        //greensquare?.physicsBody?.contactTestBitMask = 0b0010
+        //player?.physicsBody?.contactTestBitMask = 0b0010
+        //yellowsquare?.physicsBody!.contactTestBitMask = 0b0010
         
         
+    }
+   
+    func didMove(to view: GameScene){
+        //physicsWorld.contactDelegate = (self as! SKPhysicsContactDelegate)
+        //self.backgroundColor = .white
     }
     func didBegin(_ contact: SKPhysicsContact){
-        if (contact.bodyA.node?.name == "player"){
-            winlabel?.text = "YOU WIN!"
+        
+        var tempA = contact.bodyA.node?.name == "greensquare"
+        var tempB = contact.bodyB.node?.name == "player"
+        if(tempA && tempB){
+            print("CONTACT DETECTED")
+            winlabel!.text = "You win by contacting the green!"
         }
-    }
-    func didMove(to view: GameScene){
-        let apple = SKSpriteNode(imageNamed: "Apple.png")
-        apple.position = CGPoint(x: size.width/2, y: size.height/2)
-            
-        addChild(apple)
-        let moveBottomLeft = SKAction.move(to: CGPoint(x: 100,y: 100), duration:2.0)
-        apple.run(moveBottomLeft)
-    }
+       }
     //let creates immutable variables -- var creates mutable variables.
     
     func touchDown(atPoint pos : CGPoint) {
@@ -95,6 +109,7 @@ class GameScene: SKScene {
     
     func touchMoved(toPoint pos : CGPoint) {
         //winlabel?.text = "Moving"
+        //winlabel?.text = timer.get
         if let n = self.player?.copy() as! SKSpriteNode? {
             n.position = pos
             //n.strokeColor = SKColor.blue

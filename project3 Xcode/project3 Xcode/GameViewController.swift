@@ -11,7 +11,7 @@ import SpriteKit
 import GameplayKit
 
 class GameViewController: UIViewController {
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -21,7 +21,7 @@ class GameViewController: UIViewController {
             
             // Get the SKScene from the loaded GKScene
             if let sceneNode = scene.rootNode as! GameScene? {
-                
+            
                 // Copy gameplay related content over to the scene
                 sceneNode.entities = scene.entities
                 sceneNode.graphs = scene.graphs
@@ -38,10 +38,11 @@ class GameViewController: UIViewController {
                     view.showsFPS = true
                     view.showsNodeCount = true
                 }
+                
             }
         }
     }
-
+    
     override var shouldAutorotate: Bool {
         return true
     }

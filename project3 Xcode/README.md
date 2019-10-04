@@ -12,3 +12,10 @@ Progress Log
         Added code to make red square move randomly
 10/1: Added code to move the green square slightly 
 10/2: Coded so that green square resets on encounter of screen edge
+10/3: Experimented with SKLabel nodes and counters for tracking score and instructions
+        Added code for Yellow square. Experimented with contact detection and collision modifications
+        Added updates to Redsquare on continuous time-loop to move across screen at constant rate.
+        Added Instructions label to the center of the screen
+10/4: Implemented on-screen brown classic d-pad for controlling player.  Enhanced player size.  
+        Removed player jump-to-click so that d-pad would be relevant. 
+        Added "Moves" counter.

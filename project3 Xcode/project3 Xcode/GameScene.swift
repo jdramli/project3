@@ -16,6 +16,8 @@ class GameScene: SKScene {
     
     private var lastUpdateTime : TimeInterval = 0
     private var player : SKSpriteNode?
+    private var pspeed = 40.0
+    private var moves = 0
     private var redsquare : SKSpriteNode?
     private var redsquare2 : SKSpriteNode?
     private var greensquare: SKSpriteNode?
@@ -39,7 +41,7 @@ class GameScene: SKScene {
         
          
         self.testtimer = self.childNode(withName: "//timer") as? SKLabelNode
-        testtimer?.position = CGPoint(x:50,y:50)
+        testtimer?.position = CGPoint(x:220,y:489)
         testtimer?.color = .brown
         time?.fire()
         print ("statement after call to time.fire()")
@@ -59,7 +61,7 @@ class GameScene: SKScene {
        
         self.greensquare = self.childNode(withName: "//greensquare") as? SKSpriteNode
         self.yellowsquare = self.childNode(withName: "//yellowsquare")as? SKSpriteNode
-        player?.physicsBody = SKPhysicsBody(circleOfRadius: 29)
+        player?.physicsBody = SKPhysicsBody(circleOfRadius: 49)
         redsquare?.physicsBody = SKPhysicsBody(circleOfRadius: 29)
         redsquare2?.physicsBody = SKPhysicsBody(circleOfRadius: 29)
         yellowsquare?.physicsBody = SKPhysicsBody(circleOfRadius: 29)
@@ -136,16 +138,24 @@ class GameScene: SKScene {
         print("The current click position for x is:",pos.x)
         print("The current click position for y is:",pos.y)
         if(pos.x < -215 && pos.x > -265 && pos.y < -480 && pos.y > -530){
-            player?.position = CGPoint(x:(player?.position.x)!, y:(player?.position.y)!+20)
+            player?.position = CGPoint(x:(player?.position.x)!, y:(player?.position.y)!+40)
+            moves = moves + 1
+            testtimer?.text = ("Moves:"+String(moves))
         }
         else if(pos.x < -215 && pos.x > -265 && pos.y < -575 && pos.y > -625){
-            player?.position = CGPoint(x:(player?.position.x)!, y:(player?.position.y)!-20)
+            player?.position = CGPoint(x:(player?.position.x)!, y:(player?.position.y)!-40)
+            moves = moves + 1
+            testtimer?.text = ("Moves:"+String(moves))
         }
         else if(pos.x < -160 && pos.x > -210 && pos.y < -525 && pos.y > -575){
-            player?.position = CGPoint(x:(player?.position.x)!+20, y:(player?.position.y)!)
+            player?.position = CGPoint(x:(player?.position.x)!+40, y:(player?.position.y)!)
+            moves = moves + 1
+            testtimer?.text = ("Moves:"+String(moves))
         }
         else if(pos.x < -265 && pos.x > -310 && pos.y < -525 && pos.y > -575){
-            player?.position = CGPoint(x:(player?.position.x)!-20, y:(player?.position.y)!)
+            player?.position = CGPoint(x:(player?.position.x)!-40, y:(player?.position.y)!)
+            moves = moves + 1
+            testtimer?.text = ("Moves:"+String(moves))
         }
         /*
         //winlabel?.text = "Stopped"

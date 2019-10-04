@@ -20,7 +20,7 @@ class GameScene: SKScene {
     private var redsquare2 : SKSpriteNode?
     private var greensquare: SKSpriteNode?
     private var yellowsquare: SKSpriteNode?
-    
+    private var winlabel: SKLabelNode?
     
     
     private var up: SKSpriteNode?
@@ -33,6 +33,7 @@ class GameScene: SKScene {
         self.lastUpdateTime = 0
         
         // Get label node from scene and store it for use later
+        self.winlabel = self.childNode(withName: "//contactlabel") as? SKLabelNode
         self.player = self.childNode(withName: "//player") as? SKSpriteNode
         if let player = self.player {
             player.alpha = 0.0
@@ -56,7 +57,17 @@ class GameScene: SKScene {
         redsquare2?.physicsBody?.collisionBitMask = 0b0001
         yellowsquare?.physicsBody?.collisionBitMask = 0b0001
         
+        greensquare?.physicsBody? = SKPhysicsBody(circleOfRadius: 29)
+        greensquare?.physicsBody?.affectedByGravity = false
+        greensquare?.physicsBody?.contactTestBitMask = 0b0010
+        player?.physicsBody?.contactTestBitMask = 0b0010
         
+        
+    }
+    func didBegin(_ contact: SKPhysicsContact){
+        if (contact.bodyA.node?.name == "player"){
+            winlabel?.text = "YOU WIN!"
+        }
     }
     func didMove(to view: GameScene){
         let apple = SKSpriteNode(imageNamed: "Apple.png")
@@ -83,7 +94,7 @@ class GameScene: SKScene {
     }
     
     func touchMoved(toPoint pos : CGPoint) {
-        
+        //winlabel?.text = "Moving"
         if let n = self.player?.copy() as! SKSpriteNode? {
             n.position = pos
             //n.strokeColor = SKColor.blue
@@ -95,6 +106,7 @@ class GameScene: SKScene {
     }
     
     func touchUp(atPoint pos : CGPoint) {
+        //winlabel?.text = "Stopped"
         if let n = self.player?.copy() as! SKSpriteNode? {
             n.position = pos
             //n.strokeColor = SKColor.red

@@ -20,6 +20,7 @@ class GameScene: SKScene {
     private var moves = 0
     private var redsquare : SKSpriteNode?
     private var redsquare2 : SKSpriteNode?
+    private var redsquare3 : SKSpriteNode?
     private var greensquare: SKSpriteNode?
     private var yellowsquare: SKSpriteNode?
     private var winlabel: SKLabelNode?
@@ -58,21 +59,26 @@ class GameScene: SKScene {
         
         self.redsquare = self.childNode(withName: "//redsquare") as? SKSpriteNode
         self.redsquare2 = self.childNode(withName: "//redsquare2") as? SKSpriteNode
+        self.redsquare3 = self.childNode(withName: "//redsquare3") as? SKSpriteNode
        
         self.greensquare = self.childNode(withName: "//greensquare") as? SKSpriteNode
         self.yellowsquare = self.childNode(withName: "//yellowsquare")as? SKSpriteNode
         player?.physicsBody = SKPhysicsBody(circleOfRadius: 49)
         redsquare?.physicsBody = SKPhysicsBody(circleOfRadius: 29)
         redsquare2?.physicsBody = SKPhysicsBody(circleOfRadius: 29)
+        redsquare3?.physicsBody = SKPhysicsBody(circleOfRadius: 29)
+        
         yellowsquare?.physicsBody = SKPhysicsBody(circleOfRadius: 29)
         greensquare?.physicsBody? = SKPhysicsBody(circleOfRadius: 29)
         
         player?.physicsBody?.affectedByGravity = false
         redsquare?.physicsBody?.affectedByGravity = false
         redsquare2?.physicsBody?.affectedByGravity = false
+        redsquare3?.physicsBody?.affectedByGravity = false
         yellowsquare?.physicsBody?.affectedByGravity = false
         redsquare?.physicsBody?.collisionBitMask = 0b0001
         redsquare2?.physicsBody?.collisionBitMask = 0b0001
+        redsquare3?.physicsBody?.collisionBitMask = 0b0001
         yellowsquare?.physicsBody?.collisionBitMask = 0b0001
         greensquare?.physicsBody?.collisionBitMask = 0b0001
         player?.physicsBody?.collisionBitMask = 0b0001
@@ -182,7 +188,7 @@ class GameScene: SKScene {
 //            player.run(SKAction.init(named: "Pulse")!, withKey: "fadeInOut")
 //        }
         
-//        for t in touches { self.touchDown(atPoint: t.location(in: self)) }
+        for t in touches { self.touchDown(atPoint: t.location(in: self)) }
     }
     
     override func touchesMoved(_ touches: Set<UITouch>, with event: UIEvent?) {
@@ -226,6 +232,11 @@ class GameScene: SKScene {
         if((redsquare2?.position.x)! > 350.0){
             redsquare2?.position = CGPoint(x: -345, y:349)
         }
+        redsquare3?.position = CGPoint(x:(redsquare3?.position.x)!-CGFloat(Double.random(in: 0..<30)),y:(redsquare3?.position.y)!)
+        if((redsquare3?.position.x)! < -350.0){
+            redsquare3?.position = CGPoint(x: 345, y:260)
+        }
+        
         }
     }
 

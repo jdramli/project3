@@ -19,3 +19,6 @@ Progress Log
 10/4: Implemented on-screen brown classic d-pad for controlling player.  Enhanced player size.  
         Removed player jump-to-click so that d-pad would be relevant. 
         Added "Moves" counter.
+10/6:  Changed physics bodies to allow for rotation on collision by using rectangle bodies
+          Modified the friction on the greensquare and the player
+          Added two more white buttons to screen.  These will affect rotation when implemented

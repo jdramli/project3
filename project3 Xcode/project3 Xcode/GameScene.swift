@@ -192,7 +192,7 @@ class GameScene: SKScene {
         }
         //These next lines will detect for angle roation.  I am not sure if two thumbs could be used on a real '
         //phone to detect both touches at the same time.
-        if(pos.x < 255 && pos.x > 215 && pos.y < -525 && pos.y > -575){
+        if(pos.x < 265 && pos.x > 215 && pos.y < -525 && pos.y > -575){
             //print("you hit right white")
             //player?.zRotation = (player?.zPosition ?? 0.0) + CGFloat(40)
             player?.run(SKAction.rotate(byAngle: CGFloat(-0.1), duration: 0.1)) //player.run is a void type action like
@@ -276,7 +276,11 @@ class GameScene: SKScene {
         if((redsquare3?.position.x)! < -350.0){
             redsquare3?.position = CGPoint(x: 345, y:260)
         }
-        
+        if((greensquare?.position.y)! > CGFloat(750)){
+               print("YOU WIN")
         }
+        //wincondition = (greensquare!.position.y > CGFloat(750) || greensquare!.position.y < CGFloat(750) || //greensquare!.position.x > CGFloat(350) || greensquare!.position.y < CGFloat(-350))
+    }
+   
     }
 

@@ -193,11 +193,15 @@ class GameScene: SKScene {
         //These next lines will detect for angle roation.  I am not sure if two thumbs could be used on a real '
         //phone to detect both touches at the same time.
         if(pos.x < 255 && pos.x > 215 && pos.y < -525 && pos.y > -575){
-            //print("you hit white")
-            player?.zRotation = (player?.zPosition ?? 0.0) + CGFloat(40)
+            //print("you hit right white")
+            //player?.zRotation = (player?.zPosition ?? 0.0) + CGFloat(40)
+            player?.run(SKAction.rotate(byAngle: CGFloat(-0.1), duration: 0.1)) //player.run is a void type action like
+                                                                                //when the spinnynodes were in the beginning example
         }
         else if(pos.x < 185 && pos.x > 135 && pos.y < -525 && pos.y > -575){
-           //print("you hit other white")
+           //print("you hit left white")
+            player?.run(SKAction.rotate(byAngle: CGFloat(0.1), duration: 0.1)) //player.run is a void type action like
+                                                                                //when the spinnynodes were in the beginning example
         }
         /*
         //winlabel?.text = "Stopped"

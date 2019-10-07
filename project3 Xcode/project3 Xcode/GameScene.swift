@@ -63,13 +63,13 @@ class GameScene: SKScene {
        
         self.greensquare = self.childNode(withName: "//greensquare") as? SKSpriteNode
         self.yellowsquare = self.childNode(withName: "//yellowsquare")as? SKSpriteNode
-        player?.physicsBody = SKPhysicsBody(circleOfRadius: 49)
-        redsquare?.physicsBody = SKPhysicsBody(circleOfRadius: 29)
-        redsquare2?.physicsBody = SKPhysicsBody(circleOfRadius: 29)
+        player?.physicsBody = SKPhysicsBody(rectangleOf: CGSize(width:98, height:98))
+        redsquare?.physicsBody = SKPhysicsBody(circleOfRadius: 29) //kept this as a circle for fun physics interactions
+        redsquare2?.physicsBody = SKPhysicsBody(rectangleOf: CGSize(width:58, height:58))
         redsquare3?.physicsBody = SKPhysicsBody(circleOfRadius: 29)
         
         yellowsquare?.physicsBody = SKPhysicsBody(circleOfRadius: 29)
-        greensquare?.physicsBody? = SKPhysicsBody(circleOfRadius: 29)
+        greensquare?.physicsBody? = SKPhysicsBody(rectangleOf: CGSize(width:58, height:58))
         
         player?.physicsBody?.affectedByGravity = false
         redsquare?.physicsBody?.affectedByGravity = false
@@ -85,6 +85,9 @@ class GameScene: SKScene {
         
         
         greensquare?.physicsBody?.affectedByGravity = false
+        //Set friction and mass
+        player?.physicsBody?.friction = CGFloat(0.7)
+        greensquare?.physicsBody?.friction = CGFloat(0.7)
         
         //greensquare?.physicsBody?.contactTestBitMask = 0b0010
         //player?.physicsBody?.contactTestBitMask = 0b0010
@@ -109,7 +112,28 @@ class GameScene: SKScene {
     //let creates immutable variables -- var creates mutable variables.
     
     func touchDown(atPoint pos : CGPoint) {
-        
+        /*
+        if(pos.x < -215 && pos.x > -265 && pos.y < -480 && pos.y > -530){
+            player?.position = CGPoint(x:(player?.position.x)!, y:(player?.position.y)!+40)
+            moves = moves + 1
+            testtimer?.text = ("Moves:"+String(moves))
+        }
+        else if(pos.x < -215 && pos.x > -265 && pos.y < -575 && pos.y > -625){
+            player?.position = CGPoint(x:(player?.position.x)!, y:(player?.position.y)!-40)
+            moves = moves + 1
+            testtimer?.text = ("Moves:"+String(moves))
+        }
+        else if(pos.x < -160 && pos.x > -210 && pos.y < -525 && pos.y > -575){
+            player?.position = CGPoint(x:(player?.position.x)!+40, y:(player?.position.y)!)
+            moves = moves + 1
+            testtimer?.text = ("Moves:"+String(moves))
+        }
+        else if(pos.x < -265 && pos.x > -310 && pos.y < -525 && pos.y > -575){
+            player?.position = CGPoint(x:(player?.position.x)!-40, y:(player?.position.y)!)
+            moves = moves + 1
+            testtimer?.text = ("Moves:"+String(moves))
+        }
+        */
         /*
         if let n = self.player?.copy() as! SKSpriteNode? {
             n.position = pos
@@ -141,8 +165,11 @@ class GameScene: SKScene {
     }
     
     func touchUp(atPoint pos : CGPoint) {
+        //These two print statements just print where x,y are on touchUp
         print("The current click position for x is:",pos.x)
         print("The current click position for y is:",pos.y)
+        //These next 4 conditionals mimic button presses by detecting the range of x,y if it is within the
+        //button-looking squares on the phone screen.  the coordinate ranges correspond to up/down/left/right
         if(pos.x < -215 && pos.x > -265 && pos.y < -480 && pos.y > -530){
             player?.position = CGPoint(x:(player?.position.x)!, y:(player?.position.y)!+40)
             moves = moves + 1
@@ -162,6 +189,15 @@ class GameScene: SKScene {
             player?.position = CGPoint(x:(player?.position.x)!-40, y:(player?.position.y)!)
             moves = moves + 1
             testtimer?.text = ("Moves:"+String(moves))
+        }
+        //These next lines will detect for angle roation.  I am not sure if two thumbs could be used on a real '
+        //phone to detect both touches at the same time.
+        if(pos.x < 255 && pos.x > 215 && pos.y < -525 && pos.y > -575){
+            //print("you hit white")
+            player?.zRotation = (player?.zPosition ?? 0.0) + CGFloat(40)
+        }
+        else if(pos.x < 185 && pos.x > 135 && pos.y < -525 && pos.y > -575){
+           //print("you hit other white")
         }
         /*
         //winlabel?.text = "Stopped"

@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		75427F25234D7E35003264BD /* StartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75427F24234D7E35003264BD /* StartViewController.swift */; };
 		754636E1233C565B00BC5773 /* shooter.png in Resources */ = {isa = PBXBuildFile; fileRef = 754636E0233C565B00BC5773 /* shooter.png */; };
 		75787D5A2344E7A50073669E /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 75787D592344E7A40073669E /* README.md */; };
 		75BECBD32339B9980092DE05 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75BECBD22339B9980092DE05 /* AppDelegate.swift */; };
@@ -39,6 +40,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		75427F24234D7E35003264BD /* StartViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartViewController.swift; sourceTree = "<group>"; };
 		754636E0233C565B00BC5773 /* shooter.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = shooter.png; sourceTree = "<group>"; };
 		75787D592344E7A40073669E /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		75BECBCF2339B9980092DE05 /* project3 Xcode.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "project3 Xcode.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -114,6 +116,7 @@
 				75BECBD82339B9980092DE05 /* GameScene.swift */,
 				75BECBDA2339B9980092DE05 /* GameViewController.swift */,
 				75BECBDC2339B9980092DE05 /* Main.storyboard */,
+				75427F24234D7E35003264BD /* StartViewController.swift */,
 				75BECBDF2339B99A0092DE05 /* Assets.xcassets */,
 				754636E0233C565B00BC5773 /* shooter.png */,
 				75BECBE12339B99A0092DE05 /* LaunchScreen.storyboard */,
@@ -276,6 +279,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				75BECBD92339B9980092DE05 /* GameScene.swift in Sources */,
+				75427F25234D7E35003264BD /* StartViewController.swift in Sources */,
 				75BECBDB2339B9980092DE05 /* GameViewController.swift in Sources */,
 				75BECBD32339B9980092DE05 /* AppDelegate.swift in Sources */,
 			);

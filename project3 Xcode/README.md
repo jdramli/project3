@@ -22,3 +22,8 @@ Progress Log
 10/6:  Changed physics bodies to allow for rotation on collision by using rectangle bodies
           Modified the friction on the greensquare and the player
           Added two more white buttons to screen.  These will affect rotation when implemented
+10/8: Added two new yellow squares. 
+          Substantially increased the mass of the yellow squares.
+          Rearranged starting positions to add some challenge
+          Created a repeating "you win" printed statement when the green square is pushed off screen
+

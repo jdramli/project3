@@ -23,6 +23,8 @@ class GameScene: SKScene {
     private var redsquare3 : SKSpriteNode?
     private var greensquare: SKSpriteNode?
     private var yellowsquare: SKSpriteNode?
+    private var yellowsquare1: SKSpriteNode?
+    private var yellowsquare2: SKSpriteNode?
     private var winlabel: SKLabelNode?
     
     private var testtimer: SKLabelNode?
@@ -63,12 +65,20 @@ class GameScene: SKScene {
        
         self.greensquare = self.childNode(withName: "//greensquare") as? SKSpriteNode
         self.yellowsquare = self.childNode(withName: "//yellowsquare")as? SKSpriteNode
+        self.yellowsquare1 = self.childNode(withName: "//yellowsquare1")as? SKSpriteNode
+        self.yellowsquare2 = self.childNode(withName: "//yellowsquare2")as? SKSpriteNode
+        
         player?.physicsBody = SKPhysicsBody(rectangleOf: CGSize(width:98, height:98))
         redsquare?.physicsBody = SKPhysicsBody(circleOfRadius: 29) //kept this as a circle for fun physics interactions
         redsquare2?.physicsBody = SKPhysicsBody(rectangleOf: CGSize(width:58, height:58))
         redsquare3?.physicsBody = SKPhysicsBody(circleOfRadius: 29)
         
-        yellowsquare?.physicsBody = SKPhysicsBody(circleOfRadius: 29)
+        yellowsquare?.physicsBody = SKPhysicsBody(circleOfRadius: 29) //kept as circle for funny physics behavior
+        yellowsquare?.physicsBody?.mass = yellowsquare!.physicsBody!.mass*50
+        yellowsquare1?.physicsBody = SKPhysicsBody(circleOfRadius: 29) //kept as circle for funny physics behavior
+        yellowsquare1?.physicsBody?.mass = yellowsquare1!.physicsBody!.mass*50
+        yellowsquare2?.physicsBody = SKPhysicsBody(circleOfRadius: 29) //kept as circle for funny physics behavior
+        yellowsquare2?.physicsBody?.mass = yellowsquare2!.physicsBody!.mass*50
         greensquare?.physicsBody? = SKPhysicsBody(rectangleOf: CGSize(width:58, height:58))
         
         player?.physicsBody?.affectedByGravity = false
@@ -76,14 +86,18 @@ class GameScene: SKScene {
         redsquare2?.physicsBody?.affectedByGravity = false
         redsquare3?.physicsBody?.affectedByGravity = false
         yellowsquare?.physicsBody?.affectedByGravity = false
+        yellowsquare1?.physicsBody?.affectedByGravity = false
+        yellowsquare2?.physicsBody?.affectedByGravity = false
         redsquare?.physicsBody?.collisionBitMask = 0b0001
         redsquare2?.physicsBody?.collisionBitMask = 0b0001
         redsquare3?.physicsBody?.collisionBitMask = 0b0001
         yellowsquare?.physicsBody?.collisionBitMask = 0b0001
+        yellowsquare1?.physicsBody?.collisionBitMask = 0b0001
+        yellowsquare2?.physicsBody?.collisionBitMask = 0b0001
         greensquare?.physicsBody?.collisionBitMask = 0b0001
         player?.physicsBody?.collisionBitMask = 0b0001
         
-        
+        //yellowsquare1 = yellowsquare!.copy() as? SKSpriteNode
         greensquare?.physicsBody?.affectedByGravity = false
         //Set friction and mass
         player?.physicsBody?.friction = CGFloat(0.7)
@@ -276,7 +290,7 @@ class GameScene: SKScene {
         if((redsquare3?.position.x)! < -350.0){
             redsquare3?.position = CGPoint(x: 345, y:260)
         }
-        if((greensquare?.position.y)! > CGFloat(750)){
+        if((greensquare?.position.y)! > CGFloat(750) || (greensquare?.position.y)! < -750 || (greensquare?.position.x)! > CGFloat(350) || (greensquare?.position.x)! < -350 ){
                print("YOU WIN")
         }
         //wincondition = (greensquare!.position.y > CGFloat(750) || greensquare!.position.y < CGFloat(750) || //greensquare!.position.x > CGFloat(350) || greensquare!.position.y < CGFloat(-350))

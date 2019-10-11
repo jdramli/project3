@@ -37,12 +37,14 @@ class GameScene: SKScene {
     private var right: SKSpriteNode?
     
     private var randomize: SKSpriteNode?
+    private var reset: SKSpriteNode?
     //private var spinnyNode : SKShapeNode?
     
     override func sceneDidLoad() {
 
         self.lastUpdateTime = 0
         self.randomize = self.childNode(withName: "//randomize") as? SKSpriteNode
+        self.reset = self.childNode(withName: "//reset") as? SKSpriteNode
          
         self.testtimer = self.childNode(withName: "//timer") as? SKLabelNode
         testtimer?.position = CGPoint(x:220,y:489)
@@ -225,6 +227,16 @@ class GameScene: SKScene {
             yellowsquare1?.position = CGPoint(x:Double.random(in: -300..<300),y:Double.random(in:-700..<700))
             yellowsquare2?.position = CGPoint(x:Double.random(in: -300..<300),y:Double.random(in:-700..<700))
             winlabel!.text = "Layout Randomized, Go Again!"
+        }
+        if(pos.x < 55 && pos.x > -31 && pos.y < 515 && pos.y > 485){
+            greensquare?.position = CGPoint(x:-32.722,y:72.901)
+            yellowsquare?.position = CGPoint(x:-32.821,y:14.803)
+            yellowsquare1?.position = CGPoint(x:-90.821,y:73)
+            yellowsquare2?.position = CGPoint(x:65.971,y:73)
+            winlabel?.numberOfLines = 2
+            winlabel?.horizontalAlignmentMode = SKLabelHorizontalAlignmentMode.center
+            winlabel?.preferredMaxLayoutWidth = 1000
+            winlabel!.text = "RESET!:\n PUSH THE GREEN OFF THE SCREEN!"
         }
         /*
         //winlabel?.text = "Stopped"

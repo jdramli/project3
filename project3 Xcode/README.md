@@ -28,4 +28,5 @@ Progress Log
           Created a repeating "you win" printed statement when the green square is pushed off screen
 
 10/10: Added a "Randomize" text button to randomly set the start positions of the green and yellow squares.
+           Added a "Reset" text button to reset to the original start positions of the green and yellow squares.
 

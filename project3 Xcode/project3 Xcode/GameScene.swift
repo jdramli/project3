@@ -76,11 +76,14 @@ class GameScene: SKScene {
         redsquare2?.physicsBody = SKPhysicsBody(rectangleOf: CGSize(width:58, height:58))
         redsquare3?.physicsBody = SKPhysicsBody(circleOfRadius: 29)
         
-        yellowsquare?.physicsBody = SKPhysicsBody(circleOfRadius: 29) //kept as circle for funny physics behavior
+        //yellowsquare?.physicsBody = SKPhysicsBody(circleOfRadius: 29) //kept as circle for funny physics behavior
+        yellowsquare?.physicsBody = SKPhysicsBody(rectangleOf: CGSize(width:58, height:58))
         yellowsquare?.physicsBody?.mass = yellowsquare!.physicsBody!.mass*50
-        yellowsquare1?.physicsBody = SKPhysicsBody(circleOfRadius: 29) //kept as circle for funny physics behavior
+        //yellowsquare1?.physicsBody = SKPhysicsBody(circleOfRadius: 29) //kept as circle for funny physics behavior
+        yellowsquare1?.physicsBody = SKPhysicsBody(rectangleOf: CGSize(width:58, height:58)) //kept as circle for funny physics behavior
         yellowsquare1?.physicsBody?.mass = yellowsquare1!.physicsBody!.mass*50
-        yellowsquare2?.physicsBody = SKPhysicsBody(circleOfRadius: 29) //kept as circle for funny physics behavior
+        //yellowsquare2?.physicsBody = SKPhysicsBody(circleOfRadius: 29) //kept as circle for funny physics behavior
+        yellowsquare2?.physicsBody = SKPhysicsBody(rectangleOf: CGSize(width:58, height:58)) //kept as circle for funny physics behavior
         yellowsquare2?.physicsBody?.mass = yellowsquare2!.physicsBody!.mass*50
         greensquare?.physicsBody? = SKPhysicsBody(rectangleOf: CGSize(width:58, height:58))
         
@@ -226,6 +229,7 @@ class GameScene: SKScene {
             yellowsquare?.position = CGPoint(x:Double.random(in: -300..<300),y:Double.random(in:-700..<700))
             yellowsquare1?.position = CGPoint(x:Double.random(in: -300..<300),y:Double.random(in:-700..<700))
             yellowsquare2?.position = CGPoint(x:Double.random(in: -300..<300),y:Double.random(in:-700..<700))
+            player?.position = CGPoint(x:-12.425, y:-552.942)
             winlabel!.text = "Layout Randomized, Go Again!"
         }
         if(pos.x < 55 && pos.x > -31 && pos.y < 515 && pos.y > 485){
@@ -233,6 +237,7 @@ class GameScene: SKScene {
             yellowsquare?.position = CGPoint(x:-32.821,y:14.803)
             yellowsquare1?.position = CGPoint(x:-90.821,y:73)
             yellowsquare2?.position = CGPoint(x:65.971,y:73)
+            player?.position = CGPoint(x:-12.425, y:-552.942)
             winlabel?.numberOfLines = 2
             winlabel?.horizontalAlignmentMode = SKLabelHorizontalAlignmentMode.center
             winlabel?.preferredMaxLayoutWidth = 1000

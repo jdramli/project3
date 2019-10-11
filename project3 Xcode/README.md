@@ -27,3 +27,5 @@ Progress Log
           Rearranged starting positions to add some challenge
           Created a repeating "you win" printed statement when the green square is pushed off screen
 
+10/10: Added a "Randomize" text button to randomly set the start positions of the green and yellow squares.
+

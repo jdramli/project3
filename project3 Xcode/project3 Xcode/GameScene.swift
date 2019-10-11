@@ -25,9 +25,10 @@ class GameScene: SKScene {
     private var yellowsquare: SKSpriteNode?
     private var yellowsquare1: SKSpriteNode?
     private var yellowsquare2: SKSpriteNode?
+    
     private var winlabel: SKLabelNode?
     
-    private var testtimer: SKLabelNode?
+    private var testtimer: SKLabelNode? //This ended up being the "number of moves" node
     private var time : Timer?
     
     private var up: SKSpriteNode?
@@ -35,13 +36,13 @@ class GameScene: SKScene {
     private var left: SKSpriteNode?
     private var right: SKSpriteNode?
     
-    
+    private var randomize: SKSpriteNode?
     //private var spinnyNode : SKShapeNode?
     
     override func sceneDidLoad() {
 
         self.lastUpdateTime = 0
-        
+        self.randomize = self.childNode(withName: "//randomize") as? SKSpriteNode
          
         self.testtimer = self.childNode(withName: "//timer") as? SKLabelNode
         testtimer?.position = CGPoint(x:220,y:489)
@@ -217,6 +218,14 @@ class GameScene: SKScene {
             player?.run(SKAction.rotate(byAngle: CGFloat(0.1), duration: 0.1)) //player.run is a void type action like
                                                                                 //when the spinnynodes were in the beginning example
         }
+        //clicks for randomize:
+        if(pos.x < -110 && pos.x > -270 && pos.y < 515 && pos.y > 485){
+            greensquare?.position = CGPoint(x:Double.random(in: -300..<300),y:Double.random(in:-700..<700))
+            yellowsquare?.position = CGPoint(x:Double.random(in: -300..<300),y:Double.random(in:-700..<700))
+            yellowsquare1?.position = CGPoint(x:Double.random(in: -300..<300),y:Double.random(in:-700..<700))
+            yellowsquare2?.position = CGPoint(x:Double.random(in: -300..<300),y:Double.random(in:-700..<700))
+            winlabel!.text = "Layout Randomized, Go Again!"
+        }
         /*
         //winlabel?.text = "Stopped"
         if let n = self.player?.copy() as! SKSpriteNode? {
@@ -291,7 +300,7 @@ class GameScene: SKScene {
             redsquare3?.position = CGPoint(x: 345, y:260)
         }
         if((greensquare?.position.y)! > CGFloat(750) || (greensquare?.position.y)! < -750 || (greensquare?.position.x)! > CGFloat(350) || (greensquare?.position.x)! < -350 ){
-               print("YOU WIN")
+               //print("YOU WIN")
             winlabel!.text = ("YOU DID IT!")
             
         }

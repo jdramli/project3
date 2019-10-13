@@ -75,6 +75,9 @@ class GameScene: SKScene {
         redsquare?.physicsBody = SKPhysicsBody(circleOfRadius: 29) //kept this as a circle for fun physics interactions
         redsquare2?.physicsBody = SKPhysicsBody(rectangleOf: CGSize(width:58, height:58))
         redsquare3?.physicsBody = SKPhysicsBody(circleOfRadius: 29)
+        //redsquare?.physicsBody?.mass = redsquare!.physicsBody!.mass*100
+        //redsquare2?.physicsBody?.mass = redsquare2!.physicsBody!.mass*100
+        //redsquare3?.physicsBody?.mass = redsquare3!.physicsBody!.mass*100
         
         //yellowsquare?.physicsBody = SKPhysicsBody(circleOfRadius: 29) //kept as circle for funny physics behavior
         yellowsquare?.physicsBody = SKPhysicsBody(rectangleOf: CGSize(width:58, height:58))

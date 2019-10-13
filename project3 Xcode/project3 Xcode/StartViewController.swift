@@ -16,11 +16,12 @@ class StartViewController: UIViewController {
 
         // Do any additional setup after loading the view.
         NSLog("STARTED THE STARTVIEW CONTROLLER!")
+        //self.view.backgroundColor = UIColor(red: 4.0, green: 52.0, blue: 96.0, alpha: 1.0)
        
         
     }
     override func viewWillDisappear(_ animated: Bool) {
-       print("This is where the screen can be removed from being run if necessary")
+       //print("This is where the screen can be removed from being run if necessary")
         
     }
 

@@ -231,6 +231,8 @@ class GameScene: SKScene {
             yellowsquare2?.position = CGPoint(x:Double.random(in: -300..<300),y:Double.random(in:-700..<700))
             player?.position = CGPoint(x:-12.425, y:-552.942)
             winlabel!.text = "Layout Randomized, Go Again!"
+            moves = 0
+            testtimer?.text = ("Moves:"+String(moves))
         }
         if(pos.x < 55 && pos.x > -31 && pos.y < 515 && pos.y > 485){
             greensquare?.position = CGPoint(x:-32.722,y:72.901)
@@ -242,6 +244,8 @@ class GameScene: SKScene {
             winlabel?.horizontalAlignmentMode = SKLabelHorizontalAlignmentMode.center
             winlabel?.preferredMaxLayoutWidth = 1000
             winlabel!.text = "RESET!:\n PUSH THE GREEN OFF THE SCREEN!"
+            moves = 0
+            testtimer?.text = ("Moves:"+String(moves))
         }
         /*
         //winlabel?.text = "Stopped"

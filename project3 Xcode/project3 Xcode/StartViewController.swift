@@ -19,7 +19,10 @@ class StartViewController: UIViewController {
        
         
     }
-    
+    override func viewWillDisappear(_ animated: Bool) {
+       print("This is where the screen can be removed from being run if necessary")
+        
+    }
 
     /*
     // MARK: - Navigation

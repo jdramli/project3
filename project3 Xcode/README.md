@@ -29,4 +29,7 @@ Progress Log
 
 10/10: Added a "Randomize" text button to randomly set the start positions of the green and yellow squares.
            Added a "Reset" text button to reset to the original start positions of the green and yellow squares.
-
+10/12/10/13: Added an instructions storyboard screen, and fixed the text label to word wrap and show the instructions.
+                    Ensured that "Start the game already!" button loaded the game screen
+                    Fixed the Randomize and Reset buttons to also reset the "Moves" counter.
+                    
